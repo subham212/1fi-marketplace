@@ -19,6 +19,12 @@ The interface supports the complete browsing-to-purchase journey:
 - Related-product browsing
 - Floating purchase action with checkout confirmation state
 
+## Live Preview
+
+[Open the live 1Fi mobile experience](https://1fi-marketplace-2.vercel.app/)
+
+The experience is optimized for phones. Laptop and desktop visitors are shown an instruction to open the link on a phone.
+
 ## Product Experience
 
 ### Marketplace

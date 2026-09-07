@@ -76,6 +76,12 @@ export default function Home() {
 
   return (
     <main className="app-stage">
+      <section className="desktop-restriction" aria-labelledby="desktop-restriction-title">
+        <div className="restriction-icon" aria-hidden="true"><span /></div>
+        <p className="restriction-kicker">1FI MOBILE EXPERIENCE</p>
+        <h1 id="desktop-restriction-title">Open 1Fi on your phone</h1>
+        <p className="restriction-copy">This shopping experience is designed for a mobile screen. Please open this link on your phone for the best experience.</p>
+      </section>
       <div className="device-frame">
         <div className="app-shell">
           <header className="status-bar" aria-label="Device status">

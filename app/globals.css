@@ -24,6 +24,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid #b99aea; outline-
 ::selection { background: #ded0f7; }
 
 .app-stage { min-height: 100vh; display: flex; justify-content: center; background: #242424; }
+.desktop-restriction { display: none; }
 .device-frame { position: relative; width: 100%; }
 .app-shell { position: relative; width: 100%; max-width: 430px; min-height: 100vh; overflow: hidden; background: var(--background); box-shadow: 0 0 0 7px #171717, 0 0 0 10px #3a3a3a; }
 
@@ -106,6 +107,60 @@ button:focus-visible, input:focus-visible { outline: 3px solid #b99aea; outline-
   .bottom-nav { position: absolute; }
   .details-overlay { position: absolute; border-radius: 37px; }
   .details-sheet { min-height: 100%; }
+}
+@media (min-width: 768px) {
+  .desktop-restriction {
+    display: grid;
+    width: min(430px, calc(100% - 48px));
+    gap: 13px;
+    justify-items: center;
+    padding: 42px 34px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 30px;
+    background: linear-gradient(145deg, #30205b, #171222 70%);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+    color: #fff;
+    text-align: center;
+  }
+  .device-frame { display: none; }
+  .restriction-icon {
+    position: relative;
+    display: grid;
+    width: 74px;
+    height: 112px;
+    place-items: center;
+    border: 5px solid #fff;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #7137c8, #32d6e8);
+    box-shadow: 8px 12px 22px rgba(0, 0, 0, .3);
+    transform: rotate(-7deg);
+  }
+  .restriction-icon::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 22px;
+    height: 5px;
+    border-radius: 99px;
+    background: rgba(10, 8, 25, .75);
+    transform: translateX(-50%);
+  }
+  .restriction-icon::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    width: 18px;
+    height: 3px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, .75);
+    transform: translateX(-50%);
+  }
+  .restriction-icon span { width: 27px; height: 27px; border: 3px solid rgba(255, 255, 255, .75); border-radius: 50%; }
+  .restriction-kicker { margin: 9px 0 0; color: #cbb8ff; font-size: 10px; font-weight: 800; letter-spacing: .18em; }
+  .desktop-restriction h1 { margin: 0; font-size: 30px; line-height: 1.05; letter-spacing: -.045em; }
+  .restriction-copy { max-width: 310px; margin: 0; color: rgba(255, 255, 255, .72); font-size: 14px; line-height: 1.45; }
 }
 @media (max-width: 345px) { .purchase-actions { grid-template-columns: 1fr; }.purchase-actions .primary-cta { width: 100%; }.highlights-grid { gap: 7px; }.highlight-card { padding: 11px; }.highlight-card strong { font-size: 12px; } }
 @media (max-width: 345px) { .hero-panel { padding-left: 16px; padding-right: 16px; }.hero-copy h1 { font-size: 29px; }.tab-switcher button { font-size: 10px; }.product-masonry { column-gap: 8px; }.product-card-body { padding: 9px; }.product-card h3 { font-size: 13px; }.card-emi { font-size: 16px; }.card-price span, .card-price strong { font-size: 11px; }.emi-box { padding: 14px; }.emi-box-heading { align-items: flex-start; }.emi-box-heading h2 { max-width: 125px; font-size: 14px; }.no-cost-label { padding: 10px 9px; font-size: 10px; }.selected-plan-card, .full-pay-option { padding: 13px; }.installment-row { gap: 5px; }.installment-card strong { font-size: 11px; }.full-pay-reward { font-size: 10px; } }

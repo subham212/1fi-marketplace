@@ -1,38 +1,136 @@
 # 1Fi Marketplace
 
-A mobile-first 1Fi shopping experience built with Next.js, React, TypeScript, and Tailwind CSS.
+A focused, mobile-first commerce experience designed for the 1Fi ecosystem. The application brings product discovery, product evaluation, and flexible payment selection into a single polished shopping flow while preserving 1Fi's visual identity.
+
+## Overview
+
+1Fi Marketplace is a responsive Next.js application built around a compact mobile commerce experience. It is intentionally optimized for mobile interaction and retains the same centered mobile application shell when viewed on larger screens.
+
+The interface supports the complete browsing-to-purchase journey:
+
+- Marketplace discovery with category navigation and search
+- Product cards with pricing, ratings, discounts, and monthly EMI information
+- Product detail views with gallery navigation
+- Variant and color selection
+- No-cost EMI and full-payment selection
+- Dynamic installment and payable-amount calculations
+- Wishlist interactions
+- Product reviews and review submission
+- Related-product browsing
+- Floating purchase action with checkout confirmation state
+
+## Product Experience
+
+### Marketplace
+
+- 1Fi-branded promotional hero section
+- Top Brands and Nearby Stores sections
+- Marketplace category filters
+- Search across available products
+- Responsive two-column product feed
+- EMI-first pricing hierarchy for quick comparison
+
+### Product Details
+
+- Swipeable product image gallery with pagination controls
+- Product fulfillment and rating information
+- Variant-specific pricing and discount calculations
+- Color selection with visual states
+- Payment plan selector for EMI and pay-in-full modes
+- Installment breakdown with payment dates
+- Cashback messaging and payment summary
+- Highlights and expandable product information
+- Customer review summary and submission flow
+- Related product carousel
+- Fixed, mobile-friendly purchase CTA
+
+## Design and Engineering Principles
+
+- Preserve 1Fi's established purple and lavender visual language
+- Use Anek Latin consistently across the interface
+- Prioritize clear hierarchy, strong contrast, and accessible controls
+- Keep interaction states visible and predictable
+- Use responsive behavior rather than separate desktop and mobile experiences
+- Keep product calculations derived from the currently selected product variant and payment plan
+- Avoid exposing secrets or environment-specific configuration in the client bundle
+
+## Technology Stack
+
+- **Framework:** Next.js App Router
+- **UI:** React
+- **Language:** TypeScript
+- **Styling:** CSS with Tailwind CSS tooling configured
+- **Typography:** Anek Latin through `next/font`
+- **Quality checks:** ESLint and Next.js production build
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
+
+- Node.js with npm
+- Git
+
+### Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/subham212/1fi-marketplace.git
+cd 1fi-marketplace
+npm install
+```
+
+### Run locally
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in a browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-The project uses `next/font` to load the Anek Latin typeface used by the 1Fi interface.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run lint` | Run ESLint checks |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build locally |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+1fi-marketplace/
+├── app/
+│   ├── globals.css    # Design tokens, responsive styles, and component styling
+│   ├── layout.tsx     # Root layout, metadata, and font configuration
+│   └── page.tsx       # Marketplace and product detail experience
+├── public/            # Public static assets
+├── package.json       # Scripts and dependencies
+└── README.md          # Project documentation
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Validation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run both checks before opening a pull request or deploying:
 
-## Deploy on Vercel
+```bash
+npm run lint
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application can be deployed to any platform that supports Next.js. For a standard Vercel deployment:
+
+1. Import the GitHub repository into Vercel.
+2. Keep the default Next.js build settings.
+3. Deploy the project.
+
+No credentials or private environment variables are required for the current front-end implementation.
+
+## Repository
+
+[github.com/subham212/1fi-marketplace](https://github.com/subham212/1fi-marketplace)

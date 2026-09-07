@@ -76,42 +76,44 @@ export default function Home() {
 
   return (
     <main className="app-stage">
-      <div className="app-shell">
-        <header className="status-bar" aria-label="Device status">
-          <span>10:49</span>
-          <span className="status-right"><span className="network">VoLTE</span><span className="signal" aria-hidden="true"><i /><i /><i /><i /></span><span className="battery"><span />30%</span></span>
-        </header>
+      <div className="device-frame">
+        <div className="app-shell">
+          <header className="status-bar" aria-label="Device status">
+            <span>10:49</span>
+            <span className="status-right"><span className="network">VoLTE</span><span className="signal" aria-hidden="true"><i /><i /><i /><i /></span><span className="battery"><span />30%</span></span>
+          </header>
 
-        <section className="hero-panel">
-          <div className="hero-copy">
-            <div className="emi-pill"><span>✦</span> NO-COST EMIs</div>
-            <h1>Shop today,<br /><em>Pay later using</em><br />Mutual funds.</h1>
-            <p>No credit score required. No interest.<br />Backed by your investments.</p>
-          </div>
-          <HeroArtwork />
-          <div className="hero-curve" />
-        </section>
-
-        <section className="tab-switcher" aria-label="Shop sections">
-          {([["brands", "Top Brands"], ["nearby", "Nearby Stores"], ["marketplace", "Marketplace"]] as const).map(([tab, label]) => (
-            <button key={tab} type="button" onClick={() => setActiveTab(tab)} className={activeTab === tab ? "active" : ""}>{label}{activeTab === tab && <span />}</button>
-          ))}
-        </section>
-
-        {activeTab === "marketplace" ? (
-          <section className="content-panel">
-            <label className="search-field"><Icon name="search" /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search products..." aria-label="Search products" /></label>
-            <div className="category-row" aria-label="Product categories">{categories.map((item) => <button key={item} type="button" onClick={() => setCategory(item)} className={category === item ? "selected" : ""}>{item}</button>)}</div>
-            <div className="section-heading"><div><p className="eyebrow">1FI MARKETPLACE</p><h2>Shop smarter</h2></div><span>{filteredProducts.length} items</span></div>
-            {filteredProducts.length > 0 ? <div className="product-masonry">{filteredProducts.map((product) => <ProductCard key={product.id} product={product} onSelect={() => setSelectedProduct(product)} />)}</div> : <div className="empty-state"><Icon name="search" /><strong>No products found</strong><span>Try another search or category.</span></div>}
+          <section className="hero-panel">
+            <div className="hero-copy">
+              <div className="emi-pill"><span>✦</span> NO-COST EMIs</div>
+              <h1>Shop today,<br /><em>Pay later using</em><br />Mutual funds.</h1>
+              <p>No credit score required. No interest.<br />Backed by your investments.</p>
+            </div>
+            <HeroArtwork />
+            <div className="hero-curve" />
           </section>
-        ) : <ShopPlaceholder activeTab={activeTab} />}
 
-        {selectedProduct && <ProductDetails product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
+          <section className="tab-switcher" aria-label="Shop sections">
+            {([["brands", "Top Brands"], ["nearby", "Nearby Stores"], ["marketplace", "Marketplace"]] as const).map(([tab, label]) => (
+              <button key={tab} type="button" onClick={() => setActiveTab(tab)} className={activeTab === tab ? "active" : ""}>{label}{activeTab === tab && <span />}</button>
+            ))}
+          </section>
 
-        <nav className="bottom-nav" aria-label="Main navigation">
-          {navItems.map((item) => <button key={item.label} type="button" className={item.label === "Shop" ? "active" : ""}><Icon name={item.icon} /><span>{item.label}</span></button>)}
-        </nav>
+          {activeTab === "marketplace" ? (
+            <section className="content-panel">
+              <label className="search-field"><Icon name="search" /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search products..." aria-label="Search products" /></label>
+              <div className="category-row" aria-label="Product categories">{categories.map((item) => <button key={item} type="button" onClick={() => setCategory(item)} className={category === item ? "selected" : ""}>{item}</button>)}</div>
+              <div className="section-heading"><div><p className="eyebrow">1FI MARKETPLACE</p><h2>Shop smarter</h2></div><span>{filteredProducts.length} items</span></div>
+              {filteredProducts.length > 0 ? <div className="product-masonry">{filteredProducts.map((product) => <ProductCard key={product.id} product={product} onSelect={() => setSelectedProduct(product)} />)}</div> : <div className="empty-state"><Icon name="search" /><strong>No products found</strong><span>Try another search or category.</span></div>}
+            </section>
+          ) : <ShopPlaceholder activeTab={activeTab} />}
+
+          {selectedProduct && <ProductDetails product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
+
+          <nav className="bottom-nav" aria-label="Main navigation">
+            {navItems.map((item) => <button key={item.label} type="button" className={item.label === "Shop" ? "active" : ""}><Icon name={item.icon} /><span>{item.label}</span></button>)}
+          </nav>
+        </div>
       </div>
     </main>
   );
